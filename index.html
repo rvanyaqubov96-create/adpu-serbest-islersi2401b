@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sərbəst İşlər Portalı | ADPU Ağcabədi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Başlıq -->
+    <header class="bg-blue-800 text-white p-8 text-center shadow-md">
+        <h1 class="text-3xl font-bold mb-2">Tələbələr üçün Sərbəst İşlər</h1>
+        <p class="text-blue-100">ADPU Ağcabədi - Sosial İş və Digər Fənlər Məlumat Bazası</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-6 mt-4">
+        
+        <!-- Yükləmə Formu (Formspree) -->
+        <section class="mb-12 bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-2xl font-bold mb-2 text-gray-900 text-center">Öz sərbəst işini göndər</h2>
+                <p class="text-gray-500 text-center mb-6 text-sm">Faylı seçib göndərdikdə birbaşa sistemə (rvanyaqubov96@gmail.com ünvanına bağlı Formspree hesabınıza) çatacaq.</p>
+                
+                <!-- QEYD: 'YOUR_FORMSPREE_ID' hissəsinə öz Formspree linkinizin sonundakı kodu yazın -->
+                <form action="https://formspree.io/f/mpppyqoa" method="POST" enctype="multipart/form-data" class="flex flex-col gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" name="Tələbənin_Adı" placeholder="Ad və Soyad" required class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <input type="text" name="Fənn_və_Mövzu" placeholder="Fənn və sərbəst işin mövzusu" required class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="flex items-center justify-center w-full mt-2">
+                        <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Faylı yükləmək üçün toxunun</span></p>
+                                <p class="text-xs text-gray-500">DOCX, PDF, PPTX</p>
+                            </div>
+                            <input type="file" name="attachment" class="hidden" required />
+                        </label>
+                    </div>
+                    <button type="submit" class="mt-2 bg-blue-700 text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition-colors shadow-md">Faylı Göndər</button>
+                </form>
+            </div>
+        </section>
+
+        <hr class="mb-10 border-gray-200">
+
+        <!-- Kateqoriya Filtrləri -->
+        <h2 class="text-2xl font-bold mb-6 text-gray-900 text-center">Bazada Olan Fayllar</h2>
+        <div class="flex flex-wrap justify-center gap-3 mb-10" id="filter-buttons">
+            <button class="filter-btn bg-blue-700 text-white px-5 py-2 rounded-full font-medium transition shadow-sm" data-filter="all">Bütün İşlər</button>
+            <button class="filter-btn bg-white hover:bg-gray-100 text-gray-700 border border-gray-200 px-5 py-2 rounded-full font-medium transition shadow-sm" data-filter="sosial-yardim">Sosial Yardım</button>
+            <button class="filter-btn bg-white hover:bg-gray-100 text-gray-700 border border-gray-200 px-5 py-2 rounded-full font-medium transition shadow-sm" data-filter="idareetme">İdarəetmə</button>
+            <button class="filter-btn bg-white hover:bg-gray-100 text-gray-700 border border-gray-200 px-5 py-2 rounded-full font-medium transition shadow-sm" data-filter="tedqiqat">Tədqiqat Metodları</button>
+            <button class="filter-btn bg-white hover:bg-gray-100 text-gray-700 border border-gray-200 px-5 py-2 rounded-full font-medium transition shadow-sm" data-filter="tehsil">Təhsil</button>
+            <button class="filter-btn bg-white hover:bg-gray-100 text-gray-700 border border-gray-200 px-5 py-2 rounded-full font-medium transition shadow-sm" data-filter="sosial-iqtisadi">Sosial-İqtisadi</button>
+        </div>
+
+        <!-- Sərbəst İşlər Şəbəkəsi (Grid) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="assignments-grid">
+
+            <!-- Material 1 -->
+            <div class="assignment-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300" data-category="sosial-yardim">
+                <div class="text-xs font-bold text-blue-600 mb-3 uppercase tracking-wider">Sosial Yardım</div>
+                <h3 class="text-lg font-bold mb-2 text-gray-900">Azərbaycanda sosial yardım</h3>
+                <p class="text-gray-600 text-sm mb-5 leading-relaxed">
+                    Bu sənəddə sosial yardımın tarixi inkişafı, ünvanlı dövlət sosial yardımı, məqsəd şərtləri və tətbiq mexanizmləri, həmçinin ailə, əlillik və yaşa görə müavinətlər əks olunub.
+                </p>
+                <a href="fayllar/azerbaycanda_sosial_yardim.docx" download class="block text-center w-full bg-blue-50 text-blue-700 font-semibold py-2.5 rounded-lg hover:bg-blue-600 hover:text-white transition-colors border border-blue-100">
+                    azerbaycanda_sosial_yardim.docx
+                </a>
+            </div>
+
+            <!-- Material 2 -->
+            <div class="assignment-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300" data-category="sosial-iqtisadi">
+                <div class="text-xs font-bold text-orange-600 mb-3 uppercase tracking-wider">Sosial-İqtisadi Tədbirlər</div>
+                <h3 class="text-lg font-bold mb-2 text-gray-900">Regionların İnkişafı və Sosial Xidmətlər</h3>
+                <p class="text-gray-600 text-sm mb-5 leading-relaxed">
+                    Mövzulara Azərbaycan regionlarının 2019–2023-cü illərdə sosial-iqtisadi inkişafı Dövlət Proqramı, ASAN xidmət, DOST mərkəzləri və məşğulluq xidmətləri barədə geniş məlumatlar daxildir.
+                </p>
+                <a href="fayllar/samir_mellim.docx" download class="block text-center w-full bg-orange-50 text-orange-700 font-semibold py-2.5 rounded-lg hover:bg-orange-600 hover:text-white transition-colors border border-orange-100">
+                    samir_mellim.docx
+                </a>
+            </div>
+
+            <!-- Material 3 -->
+            <div class="assignment-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300" data-category="idareetme">
+                <div class="text-xs font-bold text-emerald-600 mb-3 uppercase tracking-wider">İdarəetmə</div>
+                <h3 class="text-lg font-bold mb-2 text-gray-900">Sosial işdə idarəetmə</h3>
+                <p class="text-gray-600 text-sm mb-5 leading-relaxed">
+                    Sənəd sosial sferada idarəetmə texnologiyaları, komandada iş, münaqişələrin qarşısının alınması və sosial işdə liderlik mövzularını əhatə edir.
+                </p>
+                <a href="fayllar/sosial_isde_idare_etme.docx" download class="block text-center w-full bg-emerald-50 text-emerald-700 font-semibold py-2.5 rounded-lg hover:bg-emerald-600 hover:text-white transition-colors border border-emerald-100">
+                    sosial_isde_idare_etme.docx
+                </a>
+            </div>
+
+            <!-- Material 4 -->
+            <div class="assignment-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300" data-category="tedqiqat">
+                <div class="text-xs font-bold text-purple-600 mb-3 uppercase tracking-wider">Tədqiqat Metodları</div>
+                <h3 class="text-lg font-bold mb-2 text-gray-900">Sosial işdə tədqiqat metodları</h3>
+                <p class="text-gray-600 text-sm mb-5 leading-relaxed">
+                    Burada empirik sosioloji tədqiqatın əsas mərhələləri, keyfiyyət intervüsünün aparılması və anketin hazırlanması, həmçinin sualların tərtibatı öyrənilir.
+                </p>
+                <a href="fayllar/sosial_isde_tedqiqat_metodlari.docx" download class="block text-center w-full bg-purple-50 text-purple-700 font-semibold py-2.5 rounded-lg hover:bg-purple-600 hover:text-white transition-colors border border-purple-100">
+                    sosial_isde_tedqiqat_metodlari.docx
+                </a>
+            </div>
+
+            <!-- Material 5 -->
+            <div class="assignment-card bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:shadow-lg transition-shadow duration-300" data-category="tehsil">
+                <div class="text-xs font-bold text-red-600 mb-3 uppercase tracking-wider">Təhsil</div>
+                <h3 class="text-lg font-bold mb-2 text-gray-900">Təhsil sistemində sosial iş</h3>
+                <p class="text-gray-600 text-sm mb-5 leading-relaxed">
+                    Sənəd müəllimlər, şagirdlər və tələbələrlə aparılan konsultasiya işləri, valideynlərlə aparılan sosial iş və əlilliyi olan şəxslərin təhsilinə dair məsələləri ehtiva edir.
+                </p>
+                <a href="fayllar/tehsil_sisteminde_sosial_is.docx" download class="block text-center w-full bg-red-50 text-red-700 font-semibold py-2.5 rounded-lg hover:bg-red-600 hover:text-white transition-colors border border-red-100">
+                    tehsil_sisteminde_sosial_is.docx
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- JavaScript - Filtr Məntiqi -->
+    <script>
+        const buttons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.assignment-card');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(btn => {
+                    btn.classList.remove('bg-blue-700', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-700');
+                });
+                
+                button.classList.remove('bg-white', 'text-gray-700');
+                button.classList.add('bg-blue-700', 'text-white');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
